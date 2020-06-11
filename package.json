@@ -1,0 +1,22 @@
+{
+  "name": "likes-buddy",
+  "version": "1.0.0",
+  "description": "Batch delete twitter likes",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack --mode=development",
+    "build": "webpack"
+  },
+  "keywords": [
+    "twitter",
+    "luis ball"
+  ],
+  "author": "Luis Ball",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
