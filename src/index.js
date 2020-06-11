@@ -34,7 +34,7 @@ const notifyStart = () => {
 }
 
 const notifyEnd = () => {
-    console.log("LikeBuddy found " + unlikables + " tweets to unlike 💔 \n")
+    console.log("-- \n LikeBuddy found " + unlikables + " tweets to unlike 💔 \n")
 }
 
 // click on the "heart" icon on the tweet
@@ -47,6 +47,11 @@ const unlike = async (tweet) => {
 
 // find and remove likes from max number of tweets
 async function findAndRemove(max=30) {
+    // abort if max is not an integer integer
+    if (typeof max !== 'number') {
+        console.log('Invalid input 🚨 \n Please enter the number of likes you want to remove.')
+        return;
+    }
     notifyStart();
     // store maximum number of visible tweets that have been liked
     // note - twitter does some fancy caching, this is not 100% reliable
@@ -66,9 +71,11 @@ async function findAndRemove(max=30) {
     // recurse if at least 1 liked tweet was found and we are still bellow the max
     if (foundTweets.length > 0 && unlikables < max) {
         scrollToBottom();
-        // an interval is established here to avoid:
-        // a) being mistaken for a bot, and
-        // b) allow for lazy-lading assets to finish rendering
+        /**
+        * an interval is established here to avoid:
+        * a) being mistaken for a bot, and
+        * b) allow for lazy-lading assets to finish rendering
+        */
         var counter = 3;
         var scrollBuffer = setInterval(function () {
             counter--
@@ -96,6 +103,6 @@ const likeBuddy = {
 }
 
 // Example usage
-// likeBuddy.unlike(20)
+// likeBuddy.unlike(20) => searches for an unliked 20 tweets on the page
 
 window.likeBuddy = likeBuddy;
