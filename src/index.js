@@ -96,4 +96,6 @@ const likeBuddy = {
 }
 
 // Example usage
-likeBuddy.unlike(20)
+// likeBuddy.unlike(20)
+
+window.likeBuddy = likeBuddy;
